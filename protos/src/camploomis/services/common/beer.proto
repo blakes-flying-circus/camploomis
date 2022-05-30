@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package camploomis.common;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.common";
+option java_outer_classname = "BeerProto";
+
+import "google/protobuf/timestamp.proto";
+
+message Beer {
+    reserved 12 to max;
+
+    // primary key
+    string beer_id = 1;
+
+    // brew batch number
+    // required
+    int32 batch_number = 2;
+
+    // alcohol by volume 
+    // optional
+    float abv = 3;
+
+    // international bitterness units
+    // optional
+    int32 ibu = 4;
+
+    // beers original gravity
+    // optional
+    float original_gravity = 5;
+
+    // beers final gravity
+    float final_gravity = 6;
+
+    // beers style
+    //required
+    string style = 7; 
+
+    // beers given name
+    // required
+    string name = 8;
+
+    // beer card image 
+    //optional
+    string card_image_url = 9;
+
+    // creation time of beer
+    google.protobuf.Timestamp created_at = 10;
+
+    // updated time of beer
+    // updated when any other field is modified 
+    google.protobuf.Timestamp updated_at = 11;
+}

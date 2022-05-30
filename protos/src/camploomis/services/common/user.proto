@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package camploomis.common;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.common";
+option java_outer_classname = "UserProto";
+
+import "common/person_name.proto";
+
+message User {
+
+    reserved 5 to max;
+
+    // primary key
+    string user_id = 1;
+
+    // users name
+    PersonName name = 2;
+
+    // users email
+    string email = 3;
+
+    // users telephone number 
+    string telephone_number = 4;
+}

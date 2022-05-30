@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package camploomis.common;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.common";
+option java_outer_classname = "BeerStyleProto";
+
+import "google/protobuf/timestamp.proto";
+
+message BeerStyle {
+    reserved 6 to max;
+
+    // primary key
+    string beer_style_id = 1;
+
+    // beer style 
+    Style style = 2;
+    
+    // beer image url 
+    string image_url = 3;
+
+    // creation time of beer style
+    google.protobuf.Timestamp created_at = 4;
+
+    // updated time of beer style
+    // updated when any other field is modified 
+    google.protobuf.Timestamp updated_at = 5;
+}
+
+// todo: add all other beer styles 
+enum Style {
+    BEER_STYLE_UNSPECIFIED = 0;
+    BEER_STYLE_PILSNER = 1;
+    BEER_STYLE_LAGER = 2;
+    BEER_STYLE_IPA = 3;
+    BEER_STYLE_DOUBLE_IPA = 4;
+    BEER_STYLE_TRIPLE_IPA = 5;
+    BEER_STYLE_PALE_ALE = 6;
+    BEER_STYLE_TRIPEL = 7;
+    BEER_STYLE_AMBER_ALE = 8;
+}

@@ -1,0 +1,26 @@
+apply plugin: 'com.google.protobuf'
+
+protobuf {
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}"
+        }
+        grpckt {
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:${grpcKotlinVersion}:jdk7@jar"
+        }
+    }
+
+    protoc {
+        artifact = "com.google.protobuf:protoc:${protocVersion}"
+    }
+    generateProtoTasks {
+        all()*.with {
+
+            plugins {
+                grpc
+                grpckt
+            }
+
+        }
+    }
+}

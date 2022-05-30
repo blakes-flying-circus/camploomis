@@ -1,0 +1,61 @@
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'kotlin'
+    apply plugin: 'kotlin-kapt'
+    apply from: "$rootDir/protobuf.gradle"
+
+    dependencies {
+        if (JavaVersion.current().isJava9Compatible()) {
+            api "javax.annotation:javax.annotation-api:1.3.2"
+        }
+
+        api platform("io.micronaut:micronaut-bom:$micronautVersion")
+
+        api "io.grpc:grpc-kotlin-stub:${grpcKotlinVersion}"
+
+        api "com.google.protobuf:protobuf-java-util:$protobufUtilVersion"
+
+
+        api "io.grpc:grpc-stub:$grpcVersion"
+        api "io.grpc:grpc-protobuf:$grpcVersion"
+    }
+
+    sourceSets {
+        main {
+            proto {
+                srcDirs += "src/main/proto"
+            }
+            java {
+                srcDirs 'build/generated/source/proto/main/grpc'
+                srcDirs 'build/generated/source/proto/main/java'
+            }
+            kotlin {
+                srcDirs 'build/generated/source/proto/main/grpckt'
+            }
+        }
+    }
+
+    compileJava {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = '1.8'
+
+            javaParameters = true
+        }
+    }
+
+    task sourcesJar(type: Jar) {
+        archiveClassifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task javadocJar(type: Jar) {
+        from javadoc
+        archiveClassifier = 'javadoc'
+    }
+    javadoc.options.addStringOption('Xdoclint:none', '-quiet')
+}

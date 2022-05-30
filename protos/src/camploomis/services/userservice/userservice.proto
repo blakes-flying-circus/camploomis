@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package camploomis.services.userservice;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.services.userservice";
+option java_outer_classname = "UserServiceProto";
+
+import "common/user.proto";
+
+service UserService {
+    rpc getUser(GetUserRequest) returns (getUserResponse) {}
+
+}
+
+message GetUserRequest {
+    string user_id = 1;
+}
+
+message getUserResponse {
+    common.User user = 1;
+}

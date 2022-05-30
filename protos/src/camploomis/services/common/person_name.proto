@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package camploomis.common;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.common";
+option java_outer_classname = "PersonNameProto";
+
+message PersonName {
+    // optional
+    string full_name = 1;
+
+    // optional
+    string given_name = 2;
+
+    // optional
+    string family_name = 3;
+
+    // optional
+    string preferred_name = 4;
+}

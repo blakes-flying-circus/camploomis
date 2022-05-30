@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package camploomis.common;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.common";
+option java_outer_classname = "BrewerProto";
+
+import "google/protobuf/timestamp.proto";
+import "common/person_name.proto";
+import "common/beer_style.proto";
+
+message Brewer {
+    reserved 7 to max;
+
+    // primary key
+    // required
+    string brewer_id = 1;
+
+    // brewers name
+    // required
+    PersonName name = 2;
+
+    // brewers bio
+    // required
+    string bio = 3;
+
+    // brewers favorite beer styles
+    // required
+    repeated BeerStyle favorite_Styles = 4;
+
+    // creation time of brewer
+    google.protobuf.Timestamp created_at = 5;
+
+    // updated time of brewer
+    // updated when any other field is modified 
+    google.protobuf.Timestamp updated_at = 6;
+
+}

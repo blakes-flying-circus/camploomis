@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.21.0"
+        classpath "com.google.protobuf:protobuf-gradle-plugin:$protobufPluginVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+plugins {
+    id 'maven-publish'
+    id "org.jetbrains.kotlin.jvm" version "${kotlinVersion}"
+    id 'com.google.protobuf' version "${protobufPluginVersion}" apply false
+}
+
+tasks.named('wrapper') {
+    distributionType = Wrapper.DistributionType.ALL
+}
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: 'maven-publish'
+    apply plugin: 'idea'
+
+    def buildNumber = rootProject.properties.get("build.number") ?: "0"
+    if (buildNumber != "0") {
+        version = "${protoVersion}.${buildNumber}"
+    } else {
+        version = "LOCAL-SNAPSHOT"
+    }
+
+    tasks.withType(Copy).all {
+        duplicatesStrategy 'warn'
+    }
+}
+
+publishing {
+    maven {
+        name = "GitHubPackages"
+        url = "https://maven.pkg.github.com/blakes-flying-circus/camploomis"
+        credentials {
+            username = System.getenv("GITHUB_ACTOR")
+            password = System.getenv("GITHUB_TOKEN")
+        }
+    }
+}
+

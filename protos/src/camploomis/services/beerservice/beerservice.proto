@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package camploomis.services.beerservice;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.services.beerservice";
+option java_outer_classname = "BeerServiceProto";
+
+import "common/beer.proto";
+
+service BeerService {
+    rpc ListBeers(ListBeersRequest) returns (ListBeersResponse);
+}
+
+message ListBeersRequest {}
+
+message ListBeersResponse{
+    repeated camploomis.common.Beer beers = 1;
+}

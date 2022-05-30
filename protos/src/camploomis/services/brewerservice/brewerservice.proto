@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package camploomis.services.brewerservice;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.services.brewerservice";
+option java_outer_classname = "BrewerServiceProto";
+
+import "common/brewer.proto";
+
+service BrewerService {
+    rpc ListBrewers(ListBrewersRequest) returns (ListBrewersResponse) {}
+
+}
+
+message ListBrewersRequest {}
+
+message ListBrewersResponse{
+    repeated common.Brewer brewers = 1;
+}

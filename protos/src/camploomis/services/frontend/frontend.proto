@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package camploomis.services.frontend;
+
+option java_multiple_files = true;
+option java_package = "com.camploomis.services.frontend";
+option java_outer_classname = "FrontendProto";
+
+import "common/brewer.proto";
+import "common/beer.proto";
+
+service Frontend {
+
+    // retrieves all brewers
+    rpc ListBrewers(ListBrewersRequest) returns (ListBrewersResponse) {}
+
+    // retrieves all beers
+    // todo update to allow pagination 
+    rpc ListBeers(ListBeersRequest) returns (ListBeersResponse);
+
+    
+}
+
+message ListBrewersRequest {}
+
+message ListBeersRequest {}
+
+message ListBrewersResponse{
+    repeated common.Brewer brewers = 1;
+}
+
+message ListBeersResponse{
+    repeated common.Beer beers = 1;
+}
