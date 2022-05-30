@@ -3,11 +3,11 @@ name: Publish package to GitHub Packages
 on:
   release:
     types: [created]
-defaults:
-  run:
-    working-directory: protos
 jobs:
   publish:
+    defaults:
+      run:
+        working-directory: protos
     runs-on: ubuntu-latest
     permissions:
       contents: read
