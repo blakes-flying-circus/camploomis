@@ -40,12 +40,14 @@ allprojects {
 }
 
 publishing {
-    maven {
-        name = "GitHubPackages"
-        url = "https://maven.pkg.github.com/blakes-flying-circus/camploomis"
-        credentials {
-            username = System.getenv("GITHUB_ACTOR")
-            password = System.getenv("GITHUB_TOKEN")
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/blakes-flying-circus/camploomis"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }

@@ -1,3 +1,8 @@
+
+dependencies {
+    api project(":services:common")
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
