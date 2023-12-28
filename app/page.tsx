@@ -1,75 +1,93 @@
-import NextLink from "next/link";
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code"
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { Image } from "@nextui-org/image";
-import styles from '../styles/App.module.css';
+'use client';
+import React from 'react';
+import { Image } from '@nextui-org/react';
+import styled from 'styled-components';
+
+import BeerCards from '@/components/BeerCard/beerCardsList';
 
 export default function Home() {
-	return (
-		<div 
-			className={styles.pageHeader}
-			style={{backgroundImage: "url(/img/beerhome.png)"}}
-		>
-			Here
-			<div className="filter" />
-			<div className={styles.contentCenter}>
-				<Image 
-					src="/img/camploomisLogoHero.png"
-					alt="logo" 
-				/>
-			</div>
-			<div
-          className="moving-clouds"
-          style={{
-            backgroundImage: "url(/img/clouds.png)"
-          }}
-        />
-		</div>
-		// <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-		// 	<div className="inline-block max-w-lg text-center justify-center">
-		// 		<h1 className={title()}>Make&nbsp;</h1>
-		// 		<h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
-		// 		<br />
-		// 		<h1 className={title()}>
-		// 			websites regardless of your design experience.
-		// 		</h1>
-		// 		<h2 className={subtitle({ class: "mt-4" })}>
-		// 			Beautiful, fast and modern React UI library.
-		// 		</h2>
-		// 	</div>
+  const recentBeersTitle = 'Our Recent Beers';
 
-		// 	<div className="flex gap-3">
-		// 		<Link
-		// 			isExternal
-		// 			as={NextLink}
-		// 			href={siteConfig.links.docs}
-		// 			className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}
-		// 		>
-		// 			Documentation
-		// 		</Link>
-		// 		<Link
-		// 			isExternal
-		// 			as={NextLink}
-		// 			className={buttonStyles({ variant: "bordered", radius: "full" })}
-		// 			href={siteConfig.links.github}
-		// 		>
-		// 			<GithubIcon size={20} />
-		// 			GitHub
-		// 		</Link>
-		// 	</div>
-
-		// 	<div className="mt-8">
-		// 		<Snippet hideSymbol hideCopyButton variant="flat">
-		// 			<span>
-		// 				Get started by editing <Code color="primary">app/page.tsx</Code>
-		// 			</span>
-		// 		</Snippet>
-		// 	</div>
-		// </section>
-	);
+  return (
+    <>
+      <HeaderWrapper>
+        <HeaderDiv style={{ backgroundImage: 'url(/img/beerhome.png)' }} />
+        <SteamDiv>
+          <SteamImage src="/img/clouds.png" alt="steam" />
+        </SteamDiv>
+        <LogoDiv>
+          <Image src="/img/camploomisLogoHero.png" alt="logo" />
+        </LogoDiv>
+      </HeaderWrapper>
+      <BodyDiv>
+        <BodyTitle>{recentBeersTitle}</BodyTitle>
+        <BeerCards />
+      </BodyDiv>
+    </>
+  );
 }
+const HeaderWrapper = styled.div`
+  background-color: #0b1011;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+`;
+const HeaderDiv = styled.div`
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+`;
+
+const LogoDiv = styled.div`
+  margin-top: 6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+`;
+
+const SteamDiv = styled.div`
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  width: 250.625em;
+  height: 43.75em;
+  -webkit-animation: SteamLoop 80s linear infinite;
+  animation: SteamLoop 80s linear infinite;
+
+  @keyframes SteamLoop {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+`;
+const SteamImage = styled(Image)`
+  margin-top: 25rem;
+`;
+
+const BodyDiv = styled.div`
+  width: 100%;
+  display: grid;
+  padding: 4rem;
+  margin-top: 1rem;
+`;
+
+const BodyTitle = styled.h1`
+  color: #333333;
+  font-weight: 300;
+  font-size: 3.6rem;
+  line-height: 1.2;
+`;

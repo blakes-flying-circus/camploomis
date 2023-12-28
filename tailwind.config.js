@@ -9,7 +9,12 @@ module.exports = {
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+        camploomis: ["var(--font-camploomis"]
+      }
+    },
   },
   darkMode: "class",
   plugins: [nextui({
