@@ -32,6 +32,7 @@ const HeaderWrapper = styled.div`
   overflow: hidden;
   position: relative;
 `;
+
 const HeaderDiv = styled.div`
   background-position: center center;
   background-size: cover;
