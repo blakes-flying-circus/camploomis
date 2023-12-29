@@ -27,10 +27,11 @@ const ProfileCard = ({ brewer }: ProfileCardProps) => {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.screen.width <= 480);
-      return () => window.removeEventListener('resize', handleResize);
     };
 
     window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
   }, [isSmallScreen]);
 
   return (
@@ -55,7 +56,7 @@ const ProfileCard = ({ brewer }: ProfileCardProps) => {
         </BeerStyles>
       </ProfileLeftWrapper>
       <ProfileRightWrapper>
-        <BioWrapper isSmallScreen={isSmallScreen}>
+        <BioWrapper $isSmallScreen={isSmallScreen}>
           <h1>{brewer.fullName}</h1>
           <hr />
           <p>{brewer.bio}</p>
@@ -91,11 +92,11 @@ const ProfileRightWrapper = styled.div`
   white-space: pre-wrap;
 `;
 
-const BioWrapper = styled.div<{ isSmallScreen: boolean }>`
+const BioWrapper = styled.div<{ $isSmallScreen: boolean }>`
   display: block;
 
   h1 {
-    font-size: ${({ isSmallScreen = true }) => (isSmallScreen ? '2.6rem' : '3.6rem')};
+    font-size: ${({ $isSmallScreen }) => ($isSmallScreen === true ? '2.6rem' : '3.6rem')};
   }
 
   hr {
