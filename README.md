@@ -1,6 +1,6 @@
-# Next.js & NextUI Template
+# Camploomis Web app
 
-This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
+This is a personal project I've used to tool up and show case my work in next.js. Camploomis brewery was a dream of my cousin and I to start a brewery together when we started home brewing in college. We'd spent most of our childhood summers together at our grandmothers house in Loomis california, which our parents coined as Camploomis. 
 
 ## Technologies Used
 
@@ -12,29 +12,18 @@ This is a template for creating applications using Next.js 13 (app directory) an
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
+All artwork is original and created using adobe illustrator and inkscape. 
+
 ## How to Use
-
-
-### Use the template with create-next-app
-
-To create a new project based on this template using `create-next-app`, run the following command:
-
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
 
 ### Install dependencies
 
 ```bash
-npm install
+yarn install
 ```
 
 ### Run the development server
 
 ```bash
-npm run dev
+yarn dev
 ```
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
