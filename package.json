@@ -19,6 +19,8 @@
     "clsx": "^2.0.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "firebase": "^10.7.1",
+    "firebase-admin": "^12.0.0",
     "framer-motion": "^10.15.1",
     "intl-messageformat": "^10.1.0",
     "next": "13.4.13",
@@ -57,5 +59,9 @@
     "stylelint-config-standard": "^34.0.0",
     "yarn-deduplicate": "^6.0.2",
     "yarn-one-version-rule": "^0.0.9"
+  },
+  "volta": {
+    "node": "18.18.1",
+    "yarn": "4.0.0"
   }
 }
