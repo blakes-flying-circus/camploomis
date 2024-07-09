@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Image } from '@nextui-org/react';
 
-type BeerCardProps = {
+export type BeerCardProps = {
   logo: string;
   title: string;
   width: number;

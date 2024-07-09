@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import BeerCard from './beerCard';
-import type { Beer } from '@/app/api/recent-beers/route';
+import type { Beer } from '@/app/(marketing)/api/recent-beers/route';
 
 type BeerCardListProps = {
   beers: Beer[];
