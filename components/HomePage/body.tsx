@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import BeerCards from '@/components/BeerCard/beerCardsList';
-import type { Beer } from '@/app/api/recent-beers/route';
+import type { Beer } from '@/app/(marketing)/api/recent-beers/route';
 
 type BodyProps = {
   beers: Beer[];

@@ -1,4 +1,4 @@
-import type { Beer } from '@/app/api/recent-beers/route';
+import type { Beer } from '@/app/(marketing)/api/recent-beers/route';
 import admin from '@/lib/firebase/admin';
 
 export const getRecentBeers = async () => {
