@@ -12,5 +12,5 @@ export type Beer = {
 
 export async function GET() {
   const beers = await getRecentBeers();
-  return NextResponse.json({ beers });
+  return NextResponse.json(beers);
 }
