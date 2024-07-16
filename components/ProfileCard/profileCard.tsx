@@ -47,7 +47,7 @@ const ProfileCard = ({ brewer }: ProfileCardProps) => {
       </ProfileLeftWrapper>
       <ProfileRightWrapper>
         <BioWrapper>
-          <h1 className="text-3xl">{brewer.fullName}</h1>
+          <h2>{brewer.fullName}</h2>
           <hr />
           <p>{brewer.bio}</p>
         </BioWrapper>
@@ -85,8 +85,8 @@ const ProfileRightWrapper = styled.div`
 const BioWrapper = styled.div`
   display: block;
 
-  h1 {
-    font-size: 2.6em;
+  h2 {
+    font-size: 2.6rem;
     margin-top: 1rem;
   }
 
