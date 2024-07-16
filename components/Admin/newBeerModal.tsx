@@ -10,7 +10,6 @@ import {
   useDisclosure,
   Input,
   Autocomplete,
-  AutocompleteSection,
   AutocompleteItem,
 } from '@nextui-org/react';
 import { Formik, Form } from 'formik';
@@ -43,12 +42,7 @@ export default function NewBeerModal() {
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
-            <Formik
-              initialValues={{ name: '', style: '' }}
-              onSubmit={(values) => {
-                console.log(values);
-              }}
-            >
+            <Formik initialValues={{ name: '', style: '' }} onSubmit={() => {}}>
               <Form>
                 <ModalHeader className="flex flex-col gap-1">{modalTitle}</ModalHeader>
                 <ModalBody>
@@ -82,7 +76,7 @@ export default function NewBeerModal() {
                     selectedKey={beerCard.logo}
                     isRequired
                     onSelectionChange={(input) => {
-                      setBeerCard({ ...beerCard, logo: input?.toString() });
+                      setBeerCard({ ...beerCard, logo: input?.toString() ?? '' });
                     }}
                   >
                     {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}

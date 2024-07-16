@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -23,16 +23,6 @@ export type BeerStyleType = {
 
 const ProfileCard = ({ brewer }: ProfileCardProps) => {
   const favoriteStylesTitle = 'Favorite Styles';
-  const [isSmallScreen, setIsSmallScreen] = useState<boolean>(false);
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.screen.width <= 480);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isSmallScreen]);
 
   return (
     <ProfileCardWrapper>
@@ -56,8 +46,8 @@ const ProfileCard = ({ brewer }: ProfileCardProps) => {
         </BeerStyles>
       </ProfileLeftWrapper>
       <ProfileRightWrapper>
-        <BioWrapper $isSmallScreen={isSmallScreen}>
-          <h1>{brewer.fullName}</h1>
+        <BioWrapper>
+          <h1 className="text-3xl">{brewer.fullName}</h1>
           <hr />
           <p>{brewer.bio}</p>
         </BioWrapper>
@@ -92,11 +82,12 @@ const ProfileRightWrapper = styled.div`
   white-space: pre-wrap;
 `;
 
-const BioWrapper = styled.div<{ $isSmallScreen: boolean }>`
+const BioWrapper = styled.div`
   display: block;
 
   h1 {
-    font-size: ${({ $isSmallScreen }) => ($isSmallScreen === true ? '2.6rem' : '3.6rem')};
+    font-size: 2.6em;
+    margin-top: 1rem;
   }
 
   hr {

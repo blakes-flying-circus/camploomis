@@ -16,6 +16,7 @@ export default async function Home() {
 
 const getRecentBeers = async () => {
   const res = await fetch('http://localhost:3000/api/recent-beers');
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const beers: Beer[] = await res.json();
   return beers;
 };

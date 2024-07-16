@@ -35,7 +35,7 @@ export default function AboutPage() {
   return (
     <>
       <HeaderWrapper>
-        <HeaderDiv style={{ backgroundImage: 'url(/img/aboutUsHEro.png)' }} />
+        <HeaderDiv style={{ backgroundImage: 'url(/img/aboutUsHero.png)' }} />
       </HeaderWrapper>
       <AboutSectionWrapper>
         <h1>{title}</h1>
