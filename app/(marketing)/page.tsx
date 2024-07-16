@@ -3,20 +3,21 @@ import React from 'react';
 import Header from '@/components/HomePage/header';
 import BodyComponent from '@/components/HomePage/body';
 import type { Beer } from './api/recent-beers/route';
+import { API_RECENT_BEERS } from '@/constants/routes';
 
 export default async function Home() {
-  const beers = await getRecentBeers();
+  const resp = await getRecentBeers();
   return (
     <>
       <Header />
-      <BodyComponent beers={beers} />
+      <BodyComponent beers={resp.beers} />
     </>
   );
 }
 
 const getRecentBeers = async () => {
-  const res = await fetch('http://localhost:3000/api/recent-beers');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${API_RECENT_BEERS}`);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const beers: Beer[] = await res.json();
-  return beers;
+  const resp: { beers: Beer[] } = await res.json();
+  return resp;
 };

@@ -26,7 +26,7 @@ export default function AboutPage() {
       favoriteStyles: [
         { name: 'Lager', icon: 'img/icons/lager.svg' },
         { name: 'Pilsner', icon: 'img/icons/pilsner.svg' },
-        { name: 'Abmber', icon: 'img/icons/ale.svg' },
+        { name: 'Amber', icon: 'img/icons/ale.svg' },
         { name: 'Pale Ale', icon: 'img/icons/ale.svg' },
       ],
     },
