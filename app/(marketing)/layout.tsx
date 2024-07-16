@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { siteConfig } from '@/config/site';
-import { fontSans } from '@/config/fonts';
+import { fontSans, fontPhosphate } from '@/config/fonts';
 import { Providers } from './providers';
 import { Navbar } from '@/components/navbar';
 
@@ -26,7 +26,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={clsx(
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable,
+          fontPhosphate.variable
+        )}
+      >
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />

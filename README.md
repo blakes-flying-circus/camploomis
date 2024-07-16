@@ -2,6 +2,8 @@
 
 This is a personal project I've used to tool up and show case my work in next.js. Camploomis brewery was a dream of my cousin and I to start a brewery together when we started home brewing in college. We'd spent most of our childhood summers together at our grandmothers house in Loomis california, which our parents coined as Camploomis. 
 
+See it here https://camploomis.com/
+
 ## Technologies Used
 
 - [Next.js 13](https://nextjs.org/docs/getting-started)

@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server';
+
 import { getRecentBeers } from '@/lib/server/beers';
 
 export type Beer = {
@@ -10,5 +12,5 @@ export type Beer = {
 
 export async function GET() {
   const beers = await getRecentBeers();
-  return Response.json(beers);
+  return NextResponse.json({ beers });
 }

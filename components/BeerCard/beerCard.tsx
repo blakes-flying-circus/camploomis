@@ -35,8 +35,8 @@ const BeerCardFront = styled.div`
   }
 `;
 
-const BeerCardTitle = styled.h3<{fontSize: number}>`
-  font-family: 'Phosphate-Inline';
+const BeerCardTitle = styled.h3<{ fontSize: number }>`
+  font-family: var(--font-phosphate);
   font-size: ${({ fontSize }) => `${fontSize}px`};
   color: #ffffff;
   line-height: 45px;
